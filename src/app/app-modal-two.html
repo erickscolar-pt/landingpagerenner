@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Insira seus dados</h1>
+<span class="red" *ngIf="error">Preencha todos os dados!</span>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome:</mat-label>
+    <input matInput [(ngModel)]="data.nome">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Telefone:</mat-label>
+    <input matInput [(ngModel)]="data.telefone" mask="(00) 0 0000-0000" placeholder="(00) 9 0000-0000">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Data e Hora para retorno:</mat-label>
+    <input matInput [(ngModel)]="data.horario" mask="00/00/0000 00:00" placeholder="Dia/Mes/Ano 23:59">
+  </mat-form-field><br/>
+  <span class="red" *ngIf="errorDate">Data e hora errradas, preencha corretamente!</span>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Não, obrigado!</button>
+  <button mat-button (click)="stateDialog(data)" cdkFocusInitial>Enviar</button>
+</div>
